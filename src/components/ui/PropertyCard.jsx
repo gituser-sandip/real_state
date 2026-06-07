@@ -15,12 +15,12 @@ export function PropertyCard({ property, isFavorite, onSelect, onFavorite }) {
     <motion.article 
       whileHover={{ y: -8 }}
       transition={{ duration: 0.3 }}
-      className="bg-linen shadow-soft"
+      className="flex h-full flex-col bg-linen shadow-soft"
     >
       <button type="button" onClick={onSelect} className="block w-full text-left">
         <img src={property.image} alt={`${property.title} exterior`} className="h-64 w-full object-cover" />
       </button>
-      <div className="p-6">
+      <div className="flex flex-grow flex-col p-6">
         <div className="flex items-start justify-between gap-4">
           <div>
             <p className="text-xs uppercase tracking-[0.16em] text-clay">{property.status}</p>
@@ -43,7 +43,8 @@ export function PropertyCard({ property, isFavorite, onSelect, onFavorite }) {
           </button>
         </div>
         <p className="mt-4 text-xl font-medium">{formatPrice(property.price)}</p>
-        <div className="mt-6 grid grid-cols-3 gap-3 border-t border-ink/12 pt-5 text-sm text-ink/72">
+        <div className="mt-auto">
+          <div className="mt-6 grid grid-cols-3 gap-3 border-t border-ink/12 pt-5 text-sm text-ink/72">
           <span className="flex items-center gap-2">
             <BedDouble size={17} /> {property.beds}
           </span>
@@ -56,7 +57,8 @@ export function PropertyCard({ property, isFavorite, onSelect, onFavorite }) {
         </div>
         <Link to={`/property/${property.id}`} className="mt-6 inline-flex items-center gap-2 text-sm uppercase tracking-[0.16em]">
           View details <ChevronRight size={17} />
-        </Link>
+          </Link>
+        </div>
       </div>
     </motion.article>
   );
