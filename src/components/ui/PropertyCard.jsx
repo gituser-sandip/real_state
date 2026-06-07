@@ -1,5 +1,6 @@
 import { MapPin, BookmarkCheck, Bookmark, BedDouble, Bath, Square, ChevronRight } from "lucide-react";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 export function formatPrice(value) {
   return new Intl.NumberFormat("en-US", {
@@ -53,9 +54,9 @@ export function PropertyCard({ property, isFavorite, onSelect, onFavorite }) {
             <Square size={17} /> {property.sqft.toLocaleString()} sq ft
           </span>
         </div>
-        <button type="button" onClick={onSelect} className="mt-6 inline-flex items-center gap-2 text-sm uppercase tracking-[0.16em]">
+        <Link to={`/property/${property.id}`} className="mt-6 inline-flex items-center gap-2 text-sm uppercase tracking-[0.16em]">
           View details <ChevronRight size={17} />
-        </button>
+        </Link>
       </div>
     </motion.article>
   );

@@ -10,6 +10,7 @@ import { Areas } from "./pages/Areas";
 import { Saved } from "./pages/Saved";
 import { Contact } from "./pages/Contact";
 import { Admin } from "./pages/Admin";
+import { Property } from "./pages/Property";
 
 export default function App() {
   return (
@@ -25,6 +26,7 @@ export default function App() {
           <Route path="saved" element={<Saved />} />
           <Route path="contact" element={<Contact />} />
           <Route path="admin" element={<Admin />} />
+          <Route path="property/:id" element={<Property />} />
         </Route>
       </Routes>
     </GlobalProvider>

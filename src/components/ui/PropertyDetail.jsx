@@ -46,7 +46,10 @@ export function PropertyDetail({ property, isFavorite, onFavorite }) {
           <img key={image} src={image} alt={`${property.title} gallery`} className="h-28 w-full object-cover" />
         ))}
       </div>
-      <Link to="/contact" className="mt-6 inline-flex w-full items-center justify-center gap-3 bg-white px-6 py-4 text-sm uppercase tracking-[0.16em] text-ink">
+      <Link to={`/property/${property.id}`} className="mt-6 inline-flex w-full items-center justify-center gap-3 border border-white/20 bg-transparent px-6 py-4 text-sm uppercase tracking-[0.16em] text-white transition-colors hover:bg-white/10">
+        View full details
+      </Link>
+      <Link to="/contact" className="mt-3 inline-flex w-full items-center justify-center gap-3 bg-white px-6 py-4 text-sm uppercase tracking-[0.16em] text-ink">
         Schedule showing <CalendarDays size={18} />
       </Link>
     </aside>
