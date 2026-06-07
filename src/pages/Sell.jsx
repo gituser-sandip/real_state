@@ -4,7 +4,7 @@ import { caseStudies } from "../data/mockData";
 export function Sell() {
   return (
     <>
-      <section className="bg-mist py-20 lg:py-28 mt-16">
+      <section className="bg-mist py-20 lg:py-28">
         <div className="mx-auto grid max-w-7xl gap-12 px-5 lg:grid-cols-[0.9fr_1.1fr] lg:px-8">
           <div>
             <p className="text-sm uppercase tracking-[0.22em] text-clay">Integrity. Initiative. Insight.</p>

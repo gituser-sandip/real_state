@@ -72,7 +72,7 @@ export function Valuation() {
 
   return (
     <>
-      <section className="bg-mist py-20 lg:py-28 mt-16">
+      <section className="bg-mist py-20 lg:py-28">
         <div className="mx-auto grid max-w-7xl gap-10 px-5 lg:grid-cols-[0.86fr_1.14fr] lg:px-8">
           <div>
             <p className="text-sm uppercase tracking-[0.22em] text-clay">Home valuation</p>

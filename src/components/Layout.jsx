@@ -1,13 +1,33 @@
-import { useState } from "react";
-import { Link, Outlet } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { Link, Outlet, useLocation } from "react-router-dom";
 import { Building2, Menu, Phone, X } from "lucide-react";
+import { AnimatePresence, motion } from "framer-motion";
 
 export function Layout() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const location = useLocation();
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const isHome = location.pathname === "/";
+  const headerSolid = !isHome || isScrolled;
 
   return (
     <div className="min-h-screen bg-linen text-ink flex flex-col">
-      <header className="fixed inset-x-0 top-0 z-50 border-b border-white/15 bg-ink/72 text-white backdrop-blur-xl">
+      <header
+        className={`fixed inset-x-0 top-0 z-50 transition-colors duration-300 border-b ${
+          headerSolid
+            ? "bg-ink/95 text-white border-white/15 backdrop-blur-xl shadow-md"
+            : "bg-transparent text-white border-transparent"
+        }`}
+      >
         <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 lg:px-8">
           <Link to="/" className="flex items-center gap-3" aria-label="Northline Estates home">
             <span className="grid h-10 w-10 place-items-center border border-white/40">
@@ -16,6 +36,7 @@ export function Layout() {
             <span className="font-serif text-2xl tracking-normal">Northline Estates</span>
           </Link>
           <nav className="hidden items-center gap-6 text-xs uppercase tracking-[0.16em] lg:flex">
+            <Link to="/buy">Buy</Link>
             <Link to="/sell">Sell</Link>
             <Link to="/listings">Search</Link>
             <Link to="/areas">Areas</Link>
@@ -45,8 +66,9 @@ export function Layout() {
           </button>
         </div>
         {menuOpen && (
-          <nav className="border-t border-white/15 bg-ink px-5 py-5 text-sm uppercase tracking-[0.18em] lg:hidden">
+          <nav className="border-t border-white/15 bg-ink px-5 py-5 text-sm uppercase tracking-[0.18em] text-white lg:hidden">
             {[
+              { path: "/buy", label: "Buy" },
               { path: "/sell", label: "Sell" },
               { path: "/listings", label: "Search" },
               { path: "/areas", label: "Areas" },
@@ -62,8 +84,19 @@ export function Layout() {
         )}
       </header>
 
-      <main className="flex-1">
-        <Outlet />
+      <main className={`flex-1 ${!isHome ? "pt-[72px]" : ""}`}>
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={location.pathname}
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.3 }}
+            className="h-full w-full"
+          >
+            <Outlet />
+          </motion.div>
+        </AnimatePresence>
       </main>
 
       <footer className="bg-linen py-10 mt-auto border-t border-ink/10">

@@ -7,7 +7,7 @@ export function Saved() {
   const { favoriteProperties } = useGlobalContext();
 
   return (
-    <section className="py-16 mt-16 bg-mist min-h-[70vh]">
+    <section className="py-16 bg-mist min-h-[70vh]">
       <div className="mx-auto max-w-7xl px-5 lg:px-8">
         <div className="flex items-center justify-between gap-5">
           <div>

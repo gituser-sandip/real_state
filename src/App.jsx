@@ -3,6 +3,7 @@ import { GlobalProvider } from "./context/GlobalContext";
 import { Layout } from "./components/Layout";
 import { Home } from "./pages/Home";
 import { Listings } from "./pages/Listings";
+import { Buy } from "./pages/Buy";
 import { Sell } from "./pages/Sell";
 import { Valuation } from "./pages/Valuation";
 import { Areas } from "./pages/Areas";
@@ -16,6 +17,7 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
+          <Route path="buy" element={<Buy />} />
           <Route path="sell" element={<Sell />} />
           <Route path="listings" element={<Listings />} />
           <Route path="areas" element={<Areas />} />

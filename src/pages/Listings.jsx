@@ -44,7 +44,7 @@ export function Listings() {
   }
 
   return (
-    <section className="bg-mist py-20 lg:py-28 mt-16">
+    <section className="bg-mist py-20 lg:py-28">
       <div className="mx-auto max-w-7xl px-5 lg:px-8">
         <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
           <div>

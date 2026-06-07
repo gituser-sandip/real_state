@@ -64,7 +64,7 @@ export function Admin() {
   }
 
   return (
-    <section className="bg-mist py-20 mt-16 min-h-[70vh]">
+    <section className="bg-mist py-20 min-h-[70vh]">
       <div className="mx-auto max-w-7xl px-5 lg:px-8">
         <div>
           <p className="text-sm uppercase tracking-[0.22em] text-clay">Dashboard</p>

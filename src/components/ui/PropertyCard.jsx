@@ -1,4 +1,5 @@
 import { MapPin, BookmarkCheck, Bookmark, BedDouble, Bath, Square, ChevronRight } from "lucide-react";
+import { motion } from "framer-motion";
 
 export function formatPrice(value) {
   return new Intl.NumberFormat("en-US", {
@@ -10,7 +11,11 @@ export function formatPrice(value) {
 
 export function PropertyCard({ property, isFavorite, onSelect, onFavorite }) {
   return (
-    <article className="bg-linen shadow-soft">
+    <motion.article 
+      whileHover={{ y: -8 }}
+      transition={{ duration: 0.3 }}
+      className="bg-linen shadow-soft"
+    >
       <button type="button" onClick={onSelect} className="block w-full text-left">
         <img src={property.image} alt={`${property.title} exterior`} className="h-64 w-full object-cover" />
       </button>
@@ -52,6 +57,6 @@ export function PropertyCard({ property, isFavorite, onSelect, onFavorite }) {
           View details <ChevronRight size={17} />
         </button>
       </div>
-    </article>
+    </motion.article>
   );
 }

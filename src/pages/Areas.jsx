@@ -4,7 +4,7 @@ import { Stat } from "../components/ui/Stat";
 
 export function Areas() {
   return (
-    <section className="neighborhood-band bg-cover bg-center py-24 text-white lg:py-32 mt-16 bg-ink">
+    <section className="neighborhood-band bg-cover bg-center py-24 text-white lg:py-32 bg-ink">
       <div className="mx-auto max-w-7xl px-5 lg:px-8">
         <p className="text-sm uppercase tracking-[0.22em] text-white/72">City to suburbs</p>
         <h2 className="mt-4 max-w-3xl font-serif text-4xl leading-tight md:text-6xl">
